@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing Page</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>ShopZone</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">Filter <span class="arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <div class="filter-group">
+                            <h4>Category</h4>
+                            <label><input type="radio" name="category" value="all" checked> All Products</label>
+                            <label><input type="radio" name="category" value="electronics"> Electronics</label>
+                            <label><input type="radio" name="category" value="clothing"> Clothing</label>
+                            <label><input type="radio" name="category" value="home"> Home Appliances</label>
+                            <label><input type="radio" name="category" value="sports"> Sports</label>
+                        </div>
+                        <div class="filter-group">
+                            <h4>Price Range</h4>
+                            <label><input type="radio" name="price" value="all" checked> All Prices</label>
+                            <label><input type="radio" name="price" value="0-50"> Under $50</label>
+                            <label><input type="radio" name="price" value="50-200"> $50 - $200</label>
+                            <label><input type="radio" name="price" value="200-500"> $200 - $500</label>
+                            <label><input type="radio" name="price" value="500+"> Above $500</label>
+                        </div>
+                        <div class="filter-group">
+                            <h4>Sort By</h4>
+                            <label><input type="radio" name="sort" value="default" checked> Default</label>
+                            <label><input type="radio" name="sort" value="priceLowHigh"> Price: Low to High</label>
+                            <label><input type="radio" name="sort" value="priceHighLow"> Price: High to Low</label>
+                            <label><input type="radio" name="sort" value="name"> Name (A-Z)</label>
+                        </div>
+                        <div class="filter-actions">
+                            <button id="applyFilters" class="btn-apply">Apply Filters</button>
+                            <button id="clearFilters" class="btn-clear">Clear All</button>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#" class="nav-link">Cart <span class="cart-count">0</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="search-bar-container">
+        <input type="text" id="searchInput" placeholder="Search products..." class="search-input">
+        <button class="search-btn">Search</button>
+    </div>
+
+    <div class="active-filters" id="activeFilters">
+        <!-- Active filter tags will be displayed here -->
+    </div>
+
+    <div class="results-info">
+        <span id="resultsCount">10 products found</span>
+    </div>
+    
+    <section class="product-list" id="productList">
+        <div class="product-card" data-category="electronics" data-price="299" data-name="smartphone">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop&crop=center" alt="Smartphone">
+                <div class="product-overlay">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>Smartphone</h3>
+                <p class="product-category">Electronics</p>
+                <p class="product-price">$299</p>
+                <button class="add-to-cart-btn" data-product="Smartphone" data-price="299">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="electronics" data-price="899" data-name="laptop">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop&crop=center" alt="Laptop">
+                <div class="product-overlay">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>Laptop</h3>
+                <p class="product-category">Electronics</p>
+                <p class="product-price">$899</p>
+                <button class="add-to-cart-btn" data-product="Laptop" data-price="899">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="clothing" data-price="20" data-name="t-shirt">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=300&fit=crop&crop=center" alt="T-Shirt">
+                <div class="product-overlay">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>T-Shirt</h3>
+                <p class="product-category">Clothing</p>
+                <p class="product-price">$20</p>
+                <button class="add-to-cart-btn" data-product="T-Shirt" data-price="20">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="clothing" data-price="40" data-name="jeans">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=300&fit=crop&crop=center" alt="Jeans">
+                <div class="product-overlay">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>Jeans</h3>
+                <p class="product-category">Clothing</p>
+                <p class="product-price">$40</p>
+                <button class="add-to-cart-btn" data-product="Jeans" data-price="40">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="home" data-price="120" data-name="microwave">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=300&fit=crop&crop=center" alt="Microwave">
+                <div class="product-overlay">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>Microwave</h3>
+                <p class="product-category">Home Appliances</p>
+                <p class="product-price">$120</p>
+                <button class="add-to-cart-btn" data-product="Microwave" data-price="120">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="home" data-price="650" data-name="refrigerator">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=400&h=300&fit=crop&crop=center" alt="Refrigerator">
+                <div class="product-overlay">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>Refrigerator</h3>
+                <p class="product-category">Home Appliances</p>
+                <p class="product-price">$650</p>
+                <button class="add-to-cart-btn" data-product="Refrigerator" data-price="650">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="sports" data-price="25" data-name="football">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1486286701208-1d58e9338013?w=400&h=300&fit=crop&crop=center" alt="Football">
+                <div class="product-overlay">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>Football</h3>
+                <p class="product-category">Sports</p>
+                <p class="product-price">$25</p>
+                <button class="add-to-cart-btn" data-product="Football" data-price="25">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="sports" data-price="80" data-name="tennis-racket">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop&crop=center" alt="Tennis Racket">
+                <div class="product-overlay">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>Tennis Racket</h3>
+                <p class="product-category">Sports</p>
+                <p class="product-price">$80</p>
+                <button class="add-to-cart-btn" data-product="Tennis Racket" data-price="80">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="electronics" data-price="150" data-name="headphones">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop&crop=center" alt="Headphones">
+                <div class="product-overlay">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>Headphones</h3>
+                <p class="product-category">Electronics</p>
+                <p class="product-price">$150</p>
+                <button class="add-to-cart-btn" data-product="Headphones" data-price="150">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="clothing" data-price="35" data-name="sweater">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=300&fit=crop&crop=center" alt="Sweater">
+                <div class="product-overlay">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>Sweater</h3>
+                <p class="product-category">Clothing</p>
+                <p class="product-price">$35</p>
+                <button class="add-to-cart-btn" data-product="Sweater" data-price="35">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-category="sports" data-price="55" data-name="cricket-kit">
+            <div class="product-image">
+                <img src="https://tse2.mm.bing.net/th/id/OIP.uid4Yxl34UYicIeHETRv8wHaF0?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="criclet-kit">
+                <div class="product-overlay">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>Cricket-Kit</h3>
+                <p class="product-category">Sports</p>
+                <p class="product-price">$55</p>
+                <button  class="add-to-cart-btn" data-product="cricket-kit" data-price="55">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-category="sports" data-price="40" data-name="dumbles">
+            <div class="product-image">
+                <img src="https://wallpapercave.com/wp/wp3699391.jpg" alt="dumbles">
+                <div class="product-overlay">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>Dumbbells</h3>
+                <p class="product-category">Sports</p>
+                <p class="product-price">$40</p>
+                <button class="add-to-cart-btn" data-product="dumbbells" data-price="40">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Quick View -->
+    <div id="quickViewModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalProductInfo">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
